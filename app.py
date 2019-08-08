@@ -3,6 +3,8 @@ import slack
 
 import env
 
+from modules.helpers.rtm_client_helper import RtmClientHelper
+
 from modules.handlers.message import MessageHandler
 
 
@@ -17,9 +19,9 @@ def main():
         data = payload['data']
         if data is not None:
             if isinstance(data, dict):
-                MessageHandler(data['text'],
-                               client=rtm_client,
-                               channel=data['channel'])
+                MessageHandler(
+                    data['text'],
+                    RtmClientHelper(rtm_client, data['channel']))
 
     rtm_client = slack.RTMClient(token=bot_token)
     rtm_client.start()

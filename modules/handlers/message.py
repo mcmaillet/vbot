@@ -10,7 +10,7 @@ class MessageHandler:
         '#stats': StatsHandler
     }
 
-    def __init__(self, message, **rtm_client_with_channel):
+    def __init__(self, message, rtm_client_helper):
         tokens = message.split(' ')
         if is_valid_command(tokens):
             MessageHandler.commands[tokens[0]](
@@ -19,8 +19,7 @@ class MessageHandler:
                     for i, token in enumerate(tokens)
                     if i > 0
                 ],
-                client=rtm_client_with_channel['client'],
-                channel=rtm_client_with_channel['channel'])
+                rtm_client_helper)
 
 
 def is_valid_command(tokens):
