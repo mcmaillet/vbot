@@ -15,18 +15,11 @@ def main():
     @slack.RTMClient.run_on(event="message")
     def handle_message(**payload):
         data = payload['data']
-        if data is not None and isinstance(data, dict):
-            message = data['text']
-            if message.lower().strip() == 'hello':
-                rtm_client.send_over_websocket(payload={
-                    "id": 1,
-                    "type": "message",
-                    "channel": data['channel'],
-                    "text": f":tada: Hello <@{data.get('user')}>! :tada:"
-                })
-            MessageHandler(message,
-                           client=rtm_client,
-                           channel=data['channel'])
+        if data is not None:
+            if isinstance(data, dict):
+                MessageHandler(data['text'],
+                               client=rtm_client,
+                               channel=data['channel'])
 
     rtm_client = slack.RTMClient(token=bot_token)
     rtm_client.start()

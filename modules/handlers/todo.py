@@ -8,6 +8,16 @@ DEFAULT_COMMAND = 'list'
 
 class TodoHandler:
     def __init__(self, tokens, **rtm_client_with_channel):
+        """
+        Setup local source json file if it does not exist. If it does, leave it.
+        :param tokens: array of string tokens
+        :param rtm_client_with_channel: dict of client and channel
+        TODO refactor to stop controlling logic with exceptions
+        """
+        try:
+            json.load(open(DEFAULT_SOURCE, 'r', encoding='utf8'))
+        except FileNotFoundError:
+            json.dump({"todo": []}, open(DEFAULT_SOURCE, 'w+', encoding='utf8'))
         try:
             if len(tokens) == 0:
                 tokens = [DEFAULT_COMMAND]

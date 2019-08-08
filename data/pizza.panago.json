@@ -1,3 +1,208 @@
 {
-  "pizza": []
+  "crust": [
+    "Original Hand-tossed Crust",
+    "Italian Thin Crust",
+    "Multigrain Hand-tossed Crust",
+    "Multigrain Thin Crust"
+  ],
+  "sauce": [
+    "Organic Italian Tomato Sauce",
+    "Passata Sauce",
+    "Jalapeno White Sauce",
+    "Tropical Sauce",
+    "BBQ Sauce",
+    "Cheezy Cheddar Sauce",
+    "Pesto Sauce",
+    "Buffalo Sauce",
+    "Coconut Curry Sauce",
+    "Fresh Salsa",
+    "Chipotle Cilantro Sauce"
+  ],
+  "cheese": [
+    "Mozzarella",
+    "Blend-Mozza + Cheddar",
+    "Cheddar",
+    "Feta",
+    "Goat Cheese",
+    "Formaggio Blend"
+  ],
+  "toppings": [
+    [
+      0,
+      "Green Peppers",
+      false
+    ],
+    [
+      1,
+      "Grilled Vegetables",
+      false
+    ],
+    [
+      2,
+      "Banana Peppers",
+      false
+    ],
+    [
+      3,
+      "Jalapenos",
+      false
+    ],
+    [
+      4,
+      "Meat-free Pepperoni",
+      false
+    ],
+    [
+      5,
+      "Sauteed Mushrooms",
+      false
+    ],
+    [
+      6,
+      "Black Olives",
+      false
+    ],
+    [
+      7,
+      "Green Olives",
+      false
+    ],
+    [
+      8,
+      "Kalamata Olives",
+      false
+    ],
+    [
+      9,
+      "Red Onions",
+      false
+    ],
+    [
+      10,
+      "Caramelized Onions",
+      false
+    ],
+    [
+      11,
+      "Red Peppers",
+      false
+    ],
+    [
+      12,
+      "Pineapple",
+      false
+    ],
+    [
+      13,
+      "Roasted Corn Medley",
+      false
+    ],
+    [
+      14,
+      "Baby Spinach",
+      false
+    ],
+    [
+      15,
+      "Roasted Garlic",
+      false
+    ],
+    [
+      16,
+      "Fresh Tomatoes",
+      false
+    ],
+    [
+      17,
+      "Cooked Tomatoes",
+      false
+    ],
+    [
+      18,
+      "Fire Roasted Tomatoes",
+      false
+    ],
+    [
+      19,
+      "Crumbled Bacon",
+      true
+    ],
+    [
+      20,
+      "Genoa Salami",
+      true
+    ],
+    [
+      21,
+      "Canadian Ham",
+      true
+    ],
+    [
+      22,
+      "Capicollo",
+      true
+    ],
+    [
+      23,
+      "Grilled Chicken",
+      true
+    ],
+    [
+      24,
+      "Beef",
+      true
+    ],
+    [
+      25,
+      "Italian Sausage",
+      true
+    ],
+    [
+      26,
+      "Pepperoni",
+      true
+    ],
+    [
+      27,
+      "Shrimp",
+      true
+    ],
+    [
+      28,
+      "Steak",
+      true
+    ],
+    [
+      29,
+      "Canadian Back Bacon",
+      true
+    ],
+    [
+      30,
+      "Beyond Meat",
+      false
+    ]
+  ],
+  "dip": [
+    "Simple Italian Dip",
+    "Classic Caesar Dip",
+    "Italian Tomato Dip",
+    "Jalapeno Ranch Dip",
+    "Italian Garlic Dip",
+    "Cheezy Cheddar Dip",
+    "Chipotle Cilantro Dip",
+    "Cayenne Hot Sauce Dip",
+    "Blue Cheese Dip",
+    "Balsamic Vinaigrette Dip",
+    "Formaggio Shaker",
+    "Chilli Shaker",
+    "Italiano Shaker",
+    "Sour Cream + Salsa"
+  ],
+  "toppings_other": [
+    "Anchovies",
+    "Chilli Flakes",
+    "Lettuce",
+    "Sour Cream"
+  ]
 }

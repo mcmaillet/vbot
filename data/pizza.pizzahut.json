@@ -1,0 +1,134 @@
+{
+  "crust": [
+    "Pan Pizza",
+    "Stuffed Crust",
+    "Homestyle Crust",
+    "Thin & Crispy"
+  ],
+  "sauce": [
+    "Tomato Sauce",
+    "Alfredo Sauce",
+    "Indian Butter",
+    "BBQ Sauce"
+  ],
+  "cheese": [
+    "Mozzarella"
+  ],
+  "toppings": [
+    [
+      0,
+      "Smoked Aged Cheddar",
+      false
+    ],
+    [
+      1,
+      "Green Pepper",
+      false
+    ],
+    [
+      2,
+      "Mushroom",
+      false
+    ],
+    [
+      3,
+      "Pineapple",
+      false
+    ],
+    [
+      4,
+      "Red Onions",
+      false
+    ],
+    [
+      5,
+      "Roasted Red Peppers",
+      false
+    ],
+    [
+      6,
+      "Hot Peppers",
+      false
+    ],
+    [
+      7,
+      "Tomatoes",
+      false
+    ],
+    [
+      8,
+      "Marinated Tomatoes",
+      false
+    ],
+    [
+      9,
+      "Black Olives",
+      false
+    ],
+    [
+      10,
+      "Roasted Garlic",
+      false
+    ],
+    [
+      11,
+      "Parmesan",
+      false
+    ],
+    [
+      12,
+      "Feta Cheese",
+      false
+    ],
+    [
+      13,
+      "Pesto",
+      false
+    ],
+    [
+      14,
+      "Pepperoni",
+      true
+    ],
+    [
+      15,
+      "Bacon Crumble",
+      true
+    ],
+    [
+      16,
+      "Bacon",
+      true
+    ],
+    [
+      17,
+      "Ham",
+      true
+    ],
+    [
+      18,
+      "Grilled Chicken Breast",
+      true
+    ],
+    [
+      19,
+      "Italian Sausage",
+      true
+    ],
+    [
+      20,
+      "Mild Sausage",
+      true
+    ],
+    [
+      21,
+      "Beef",
+      true
+    ],
+    [
+      22,
+      "Smokey Maple Bacon",
+      true
+    ]
+  ]
+}
