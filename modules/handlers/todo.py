@@ -1,5 +1,3 @@
-import json
-
 from modules.helpers import common_helper as ch
 
 DEFAULT_SOURCE = 'data/todo.json'
@@ -16,9 +14,9 @@ class TodoHandler:
         """
         self.rtm_client_helper = rtm_client_helper
         try:
-            json.load(open(DEFAULT_SOURCE, 'r', encoding='utf8'))
+            ch.read_json(DEFAULT_SOURCE)
         except FileNotFoundError:
-            json.dump(DEFAULT_TODO_LIST, open(DEFAULT_SOURCE, 'w+', encoding='utf8'))
+            ch.write_json(DEFAULT_SOURCE, DEFAULT_TODO_LIST)
 
         commands = {
             'list': self.list,
@@ -30,11 +28,10 @@ class TodoHandler:
             tokens = [DEFAULT_COMMAND]
 
         if tokens[0] in commands.keys():
-            commands[tokens[0]].__call__(
-                [token for i, token in enumerate(tokens) if i > 0]
-            )
+            commands[tokens[0]].__call__(tokens[1:])
         else:
-            self.rtm_client_helper.send_message("Sorry! that todo command is not supported.")
+            self.rtm_client_helper.send_message(
+                "Sorry! that todo command is not supported.")
 
     def list(self, trailing_tokens):
         todo = get_todo()
@@ -42,33 +39,44 @@ class TodoHandler:
             self.rtm_client_helper.send_message('Your todo list is empty')
         else:
             self.rtm_client_helper.send_message(
-                'Here is your current todo list:\n {}'.format('\n'.join(f"{i}) {t}"
-                                                                        for i, t in enumerate(get_todo()))))
+                'Here is your current todo list:\n {}'.format(
+                    '\n'.join(f"{i}) {t}"
+                              for i, t in enumerate(get_todo()))
+                )
+            )
 
     def add(self, to_add):
         added = ' '.join(to_add)
         todo = get_todo()
         todo.append(added)
         write_todo(todo)
-        self.rtm_client_helper.send_message(f"Added the following to your todo list:\n{added}")
+        self.rtm_client_helper.send_message(
+            f"Added the following to your todo list:\n{added}")
 
     def remove(self, index_to_remove):
         try:
             index_to_remove = int(index_to_remove[0])
             todo = get_todo()
             if index_to_remove >= len(todo):
-                self.rtm_client_helper.send_message(f"Index {index_to_remove} is out of bounds. (Arrays start at 0)")
+                self.rtm_client_helper.send_message(
+                    f"Index "
+                    f"{index_to_remove}"
+                    f" is out of bounds. (Arrays start at 0)")
             else:
                 removed = todo[index_to_remove]
                 todo.pop(index_to_remove)
                 write_todo(todo)
-                self.rtm_client_helper.send_message(f"Removed the following from your todo list:\n{removed}")
+                self.rtm_client_helper.send_message(
+                    f"Removed the following from your todo list:\n{removed}")
         except ValueError:
-            self.rtm_client_helper.send_message(f"Invalid argument '{' '.join(index_to_remove)}', must be an integer")
+            self.rtm_client_helper.send_message(
+                f"Invalid argument '"
+                f"{' '.join(index_to_remove)}"
+                f"', must be an integer")
 
 
 def get_todo():
-    return ch.open_json_for_read(DEFAULT_SOURCE)['todo']
+    return ch.read_json(DEFAULT_SOURCE)['todo']
 
 
 def write_todo(todo):

@@ -20,7 +20,7 @@ def get_cast_type(arg, types):
     return None
 
 
-def open_json_for_read(path_and_filename):
+def read_json(path_and_filename):
     return json.load(open_file_for_read(path_and_filename))
 
 

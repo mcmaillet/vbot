@@ -21,9 +21,12 @@ def main():
             if isinstance(data, dict):
                 MessageHandler(
                     data['text'],
-                    RtmClientHelper(rtm_client, data['channel']))
+                    RtmClientHelper(rtm_client,
+                                    data['channel'],
+                                    data['user']))
 
     rtm_client = slack.RTMClient(token=bot_token)
+    print('Client running..')
     rtm_client.start()
 
 

@@ -1,7 +1,5 @@
 """Toppings array: [origin_index,topping_name,is_meat]
 """
-import json
-
 from modules.helpers import common_helper as ch
 
 USAGE_TIPS = "Usage:\n#pizza number-of-toppings [-v|-m]"
@@ -21,11 +19,13 @@ TOPPINGS_KEY = 'toppings'
 class PizzaHandler:
     def __init__(self, tokens, rtm_client_helper):
         """
-        Not fully implemented. Only lists toppings and responds to #pizza and #pizza number-of-toppings
+        Not fully implemented. Only lists toppings and responds to #pizza
+         and #pizza number-of-toppings
         :param tokens: array of string tokens
         :param rtm_client_helper: RtmClientHelper object
         """
-        self.number_of_toppings = ch.get_random_int(MINIMUM_TOPPINGS, MAXIMUM_TOPPINGS)
+        self.number_of_toppings = ch.get_random_int(MINIMUM_TOPPINGS,
+                                                    MAXIMUM_TOPPINGS)
         self.pizza_joint = DEFAULT_PIZZA_JOINT
         self.topping_preference_flag = DEFAULT_PREFERENCE_FLAG
         self.rtm_client_helper = rtm_client_helper
@@ -53,14 +53,16 @@ class PizzaHandler:
             self.handle_pizza()
         else:
             self.rtm_client_helper.send_message(
-                f"Minimum toppings: {MINIMUM_TOPPINGS}\nMaximum toppings: {MAXIMUM_TOPPINGS}")
+                f"Minimum toppings: {MINIMUM_TOPPINGS}\n"
+                f"Maximum toppings: {MAXIMUM_TOPPINGS}")
 
     def handle_pizza(self):
-        j = json.load(open(DEFAULT_SOURCE.format(self.pizza_joint), 'r', encoding='utf8'))
+        j = ch.read_json(DEFAULT_SOURCE.format(self.pizza_joint))
 
         crust = ch.get_random_element(j, CRUST_KEY)
         sauce = ch.get_random_element(j, SAUCE_KEY)
-        toppings = [ch.get_random_element(j, TOPPINGS_KEY) for i in range(self.number_of_toppings)]
+        toppings = [ch.get_random_element(j, TOPPINGS_KEY)
+                    for _ in range(self.number_of_toppings)]
 
         self.rtm_client_helper.send_message(
             f"How about a:\n"
@@ -73,7 +75,7 @@ class PizzaHandler:
 
 def format_pizza_toppings(toppings):
     def format_extras(_kv):
-        prefix = " ".join(["Extra" for i in range(_kv[1] - 1)])
+        prefix = " ".join(["Extra" for _ in range(_kv[1] - 1)])
         return f"{prefix} {_kv[0]}".strip()
 
     already_counted = {}
